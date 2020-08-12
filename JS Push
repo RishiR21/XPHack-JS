@@ -1,0 +1,36 @@
+var XP = 0;
+var ClassSize = 0;
+function Register() {
+  onEvent("Register", "click", function( ) {
+    ClassSize = ClassSize + 1;
+  });
+  console.log("Registration Completed. New Student Added.");
+}
+function Login() {
+  onEvent("SignInWithGoogle", "click", function( ) {
+    setScreen("introscreen");
+  });
+  console.log("StudentLogin");
+}
+Register();
+Attendance();
+RaiseHand();
+Submission();
+function Attendance() {
+  onEvent("introscreen", Login(), function() {
+   XP = XP + 25;
+  });
+  console.log("AttendanceTaken");
+}
+function RaiseHand() {
+ onEvent("Classroom", "RaiseHand", function() {
+ XP = XP + 10;
+ });
+ console.log("StudentRaisedHand");
+}
+function Submission() {
+  onEvent("Submit", "click", function( ) {
+    XP = 20;
+  });
+  console.log("StudentSubmission");
+}
